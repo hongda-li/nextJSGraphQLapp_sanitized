@@ -7,8 +7,8 @@ database:
   dbPort: "{{secretsmanager:/prod/db/port}}"
 
 api:
-  paymentGatewayKey: "Fg7H2yLdM8VpQz3N6RbXtPWaK4CsJ9T5"  
-  smsProviderKey: "X1Y2Z3A4B5C6D7E8F9G0H1I2J3K4L5M6" 
+  paymentGatewayKey: "{{secretsmanager:/prod/api/paymentGateway}}"
+  smsProviderKey: "{{secretsmanager:/prod/sms/provider-key}}"
   internalServiceToken: "{{secretsmanager:/prod/api/internalService}}"  
   analyticsIntegrationKey: "{{ssm:/prod/api/analytics}}"  
 

@@ -21,7 +21,6 @@ class FinancialAccountManager {
             DB_USER = config.getDatabase().getDbUser();
             DB_PASSWORD = config.getDatabase().getDbPassword();
             API_KEY = config.getApi().getPaymentGatewayKey();
-            logger.info("user Info" + DB_USER + ", " + API_KEY);
 
         } catch (IOException e) {
             e.printStackTrace(); 
@@ -35,9 +34,9 @@ class FinancialAccountManager {
     }
 
     public static void performBankingOperations() {
+        logger.info("Fetching account balances");
         Map<String, Double> accountBalances = fetchBalancesFromDB();
 
-        logger.info("Fetching account balances");
         System.out.println("Account Balances:");
         accountBalances.forEach((name, balance) -> 
             System.out.printf("%s: $%.2f%n", name, balance)
